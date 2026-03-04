@@ -1,6 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
+  output: "export",
+  basePath: "/Rysav-The-Veda-Samhithi",
+  assetPrefix: "/Rysav-The-Veda-Samhithi",
   trailingSlash: true,
   images: {
     unoptimized: true
