@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 810">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#E8C87A" stop-opacity="0.4"/>
+      <stop offset="35%" stop-color="#D4C5A9" stop-opacity="0.3"/>
+      <stop offset="70%" stop-color="#E8DCC8" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#FAF7F2" stop-opacity="1"/>
+    </linearGradient>
+    <linearGradient id="sunGlow" cx="50%" cy="20%" r="40%" fx="50%" fy="20%">
+      <stop offset="0%" stop-color="#C89B3C" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#C89B3C" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="mist" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FAF7F2" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#FAF7F2" stop-opacity="0.6"/>
+    </linearGradient>
+  </defs>
+  <!-- Sky -->
+  <rect width="1440" height="810" fill="url(#sky)"/>
+  <!-- Sun glow -->
+  <circle cx="720" cy="180" r="300" fill="#C89B3C" opacity="0.12"/>
+  <circle cx="720" cy="180" r="150" fill="#C89B3C" opacity="0.08"/>
+  <!-- Distant mountains -->
+  <path d="M0 600 Q100 420 200 480 Q350 350 480 440 Q580 320 720 400 Q860 280 960 380 Q1100 300 1200 400 Q1300 340 1440 420 L1440 810 L0 810Z" fill="#4E5B3A" opacity="0.06"/>
+  <!-- Mid mountains -->
+  <path d="M0 650 Q180 500 320 560 Q460 440 600 520 Q740 400 880 500 Q1020 420 1160 500 Q1300 440 1440 520 L1440 810 L0 810Z" fill="#4E5B3A" opacity="0.08"/>
+  <!-- Temple silhouette -->
+  <g transform="translate(1100, 350)" opacity="0.06">
+    <path d="M50 0 L60 30 L65 30 L72 60 L78 60 L82 90 L85 90 L85 200 L15 200 L15 90 L18 90 L22 60 L28 60 L35 30 L40 30 Z" fill="#4E5B3A"/>
+    <rect x="38" y="150" width="24" height="50" fill="#4E5B3A"/>
+    <circle cx="50" cy="22" r="5" fill="#4E5B3A"/>
+    <line x1="50" y1="0" x2="50" y2="-12" stroke="#4E5B3A" stroke-width="2"/>
+    <!-- Smaller temple -->
+    <g transform="translate(90, 60)">
+      <path d="M30 0 L36 20 L40 20 L45 50 L48 50 L48 140 L12 140 L12 50 L15 50 L20 20 L24 20 Z" fill="#4E5B3A"/>
+      <rect x="22" y="100" width="16" height="40" fill="#4E5B3A"/>
+      <circle cx="30" cy="14" r="4" fill="#4E5B3A"/>
+    </g>
+  </g>
+  <!-- Lake reflection -->
+  <ellipse cx="400" cy="700" rx="300" ry="40" fill="#C89B3C" opacity="0.04"/>
+  <!-- Mist layer -->
+  <rect y="500" width="1440" height="310" fill="url(#mist)"/>
+  <!-- Mandala watermark -->
+  <g transform="translate(720, 400)" opacity="0.03">
+    <circle r="200" fill="none" stroke="#C89B3C" stroke-width="0.5"/>
+    <circle r="160" fill="none" stroke="#C89B3C" stroke-width="0.5"/>
+    <circle r="120" fill="none" stroke="#C89B3C" stroke-width="0.5"/>
+    <circle r="80" fill="none" stroke="#C89B3C" stroke-width="0.5"/>
+    <circle r="40" fill="none" stroke="#C89B3C" stroke-width="0.5"/>
+    <line x1="0" y1="-200" x2="0" y2="200" stroke="#C89B3C" stroke-width="0.3"/>
+    <line x1="-200" y1="0" x2="200" y2="0" stroke="#C89B3C" stroke-width="0.3"/>
+    <line x1="-141" y1="-141" x2="141" y2="141" stroke="#C89B3C" stroke-width="0.3"/>
+    <line x1="141" y1="-141" x2="-141" y2="141" stroke="#C89B3C" stroke-width="0.3"/>
+    <ellipse rx="50" ry="180" fill="none" stroke="#C89B3C" stroke-width="0.3" transform="rotate(30)"/>
+    <ellipse rx="50" ry="180" fill="none" stroke="#C89B3C" stroke-width="0.3" transform="rotate(60)"/>
+    <ellipse rx="50" ry="180" fill="none" stroke="#C89B3C" stroke-width="0.3" transform="rotate(90)"/>
+    <ellipse rx="50" ry="180" fill="none" stroke="#C89B3C" stroke-width="0.3" transform="rotate(120)"/>
+    <ellipse rx="50" ry="180" fill="none" stroke="#C89B3C" stroke-width="0.3" transform="rotate(150)"/>
+    <ellipse rx="50" ry="180" fill="none" stroke="#C89B3C" stroke-width="0.3"/>
+  </g>
+</svg>

@@ -1,99 +1,85 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const services = [
   {
-    title: "Vedic Consultations",
+    title: "Purohit",
     description:
-      "Personalised guidance rooted in Jyotish, Vastu, and ancient Vedic frameworks to help you navigate life's decisions with clarity.",
-    href: "/services/consultations",
-    accent: "gold" as const,
+      "Connect with experienced and knowledgeable Purohits for all your ceremonial and ritual needs, performed with authentic Vedic traditions.",
+    href: "/services/purohit",
+    icon: "/images/icons/purohit.svg",
     gradient: "from-amber-50 to-yellow-50",
-    icon: "🔮",
   },
   {
-    title: "Ritual Guidance",
+    title: "Pooja Samagri",
     description:
-      "Step-by-step guidance for performing traditional Pujas, Homas, and Samskaras with authentic mantras and procedures.",
-    href: "/services/rituals",
-    accent: "olive" as const,
-    gradient: "from-green-50 to-emerald-50",
-    icon: "🪔",
-  },
-  {
-    title: "Meaning of Ancient Rituals",
-    description:
-      "Understand the deeper symbolism, philosophy, and science behind age-old Vedic rituals practised across generations.",
-    href: "/services/meaning",
-    accent: "gold" as const,
+      "Authentic and curated pooja materials sourced with care, ensuring the sanctity and completeness of every ritual you perform.",
+    href: "/services/pooja-samagri",
+    icon: "/images/icons/pooja-samagri.svg",
     gradient: "from-orange-50 to-rose-50",
-    icon: "📿",
+  },
+  {
+    title: "Horoscope",
+    description:
+      "Personalised Jyotish-based horoscope readings rooted in Vedic astrology, offering clarity on life events, timing, and self-understanding.",
+    href: "/services/horoscope",
+    icon: "/images/icons/horoscope.svg",
+    gradient: "from-indigo-50 to-violet-50",
   },
 ];
 
 export default function ServicesList() {
   return (
-    <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-5xl mx-auto">
+    <section className="py-20 sm:py-24 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto">
         {/* Om divider */}
         <div className="om-divider" />
 
-        <div className="text-center mb-12">
+        <div className="text-center mb-14">
           <p className="text-gold text-xs font-semibold tracking-[0.2em] uppercase mb-2">
             What we offer
           </p>
           <h2 className="font-heading text-3xl sm:text-4xl font-bold text-text">
-            Our Services
+            Services Offered
           </h2>
         </div>
 
-        {/* Service rows */}
-        <div className="space-y-5">
-          {services.map((service, i) => (
-            <article
+        {/* Service cards grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          {services.map((service) => (
+            <Link
               key={service.title}
-              className="bg-surface rounded-card shadow-card card-glow border border-border overflow-hidden"
+              href={service.href}
+              className="group bg-surface rounded-card shadow-card card-hover-subtle border border-border overflow-hidden flex flex-col"
             >
-              <div className="flex flex-col sm:flex-row items-stretch">
-                {/* Thumbnail */}
-                <div
-                  className={`sm:w-48 md:w-56 h-40 sm:h-auto bg-gradient-to-br ${service.gradient} flex items-center justify-center shrink-0`}
-                >
-                  <span className="text-5xl select-none" aria-hidden="true">
-                    {service.icon}
-                  </span>
-                </div>
-
-                {/* Content */}
-                <div className="flex-1 p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8">
-                  <div className="flex-1">
-                    <h3 className="font-heading text-lg sm:text-xl font-bold text-text mb-2">
-                      {service.title}
-                    </h3>
-                    <p className="text-sm text-mutedText leading-relaxed">
-                      {service.description}
-                    </p>
-                    <Link
-                      href={service.href}
-                      className="inline-block mt-3 text-gold text-sm font-semibold hover:text-goldHover transition-colors sm:hidden"
-                    >
-                      Read More →
-                    </Link>
-                  </div>
-
-                  {/* Pill button (desktop) */}
-                  <Link
-                    href={service.href}
-                    className={`hidden sm:inline-flex shrink-0 items-center px-6 py-2.5 rounded-pill text-sm font-semibold btn-lift transition-colors text-white ${
-                      service.accent === "gold"
-                        ? "bg-gold hover:bg-goldHover"
-                        : "bg-olive hover:bg-oliveHover"
-                    }`}
-                  >
-                    Read More →
-                  </Link>
-                </div>
+              {/* Icon area */}
+              <div
+                className={`h-48 bg-gradient-to-br ${service.gradient} flex items-center justify-center transition-transform duration-300 group-hover:scale-[1.02] relative`}
+              >
+                {/* Subtle gold top accent */}
+                <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
+                <Image
+                  src={service.icon}
+                  alt={service.title}
+                  width={64}
+                  height={64}
+                  className="opacity-75 group-hover:opacity-90 transition-opacity duration-300"
+                />
               </div>
-            </article>
+
+              {/* Content */}
+              <div className="p-6 flex-1 flex flex-col">
+                <h3 className="font-heading text-lg font-bold text-text mb-2">
+                  {service.title}
+                </h3>
+                <p className="text-sm text-mutedText leading-relaxed mb-4">
+                  {service.description}
+                </p>
+                <span className="mt-auto text-gold text-sm font-semibold group-hover:text-goldHover transition-colors">
+                  Learn More →
+                </span>
+              </div>
+            </Link>
           ))}
         </div>
       </div>

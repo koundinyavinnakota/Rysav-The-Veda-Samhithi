@@ -2,30 +2,35 @@
 
 import { useRef, useEffect, useState } from "react";
 
-const myths = [
+const festivals = [
   {
-    title: "Puja ceremonies are superstitious",
+    title: "Ugadi",
+    description: "New beginnings and the Telugu/Kannada New Year",
+    icon: "🌸",
+    color: "from-amber-50 to-orange-50",
+  },
+  {
+    title: "Sri Ramanavami",
+    description: "Celebration of the birth of Lord Rama",
+    icon: "🏹",
+    color: "from-yellow-50 to-amber-50",
+  },
+  {
+    title: "Vinayaka Chavithi",
+    description: "Festival honoring Lord Ganesha",
+    icon: "🐘",
+    color: "from-orange-50 to-rose-50",
+  },
+  {
+    title: "Dusshera",
+    description: "Victory of dharma over adharma",
+    icon: "⚔️",
+    color: "from-red-50 to-orange-50",
+  },
+  {
+    title: "Diwali",
+    description: "Festival of lights and spiritual renewal",
     icon: "🪔",
-    color: "from-rose-50 to-pink-50",
-  },
-  {
-    title: "Vedas are only religious texts",
-    icon: "📜",
-    color: "from-sky-50 to-indigo-50",
-  },
-  {
-    title: "Meditation is just sitting quietly",
-    icon: "🧘",
-    color: "from-violet-50 to-purple-50",
-  },
-  {
-    title: "Ayurveda is just herbal medicine",
-    icon: "🌿",
-    color: "from-lime-50 to-green-50",
-  },
-  {
-    title: "Astrology has no scientific value",
-    icon: "🌟",
     color: "from-amber-50 to-yellow-50",
   },
 ];
@@ -41,7 +46,7 @@ function ArrowButton({
     <button
       onClick={onClick}
       aria-label={`Scroll ${direction}`}
-      className="hidden md:flex items-center justify-center w-11 h-11 rounded-full bg-surface border border-border shadow-card hover:bg-gold/10 hover:border-gold/30 transition-all duration-200 shrink-0"
+      className="hidden md:flex items-center justify-center w-11 h-11 rounded-full bg-surface border border-gold/20 shadow-card hover:bg-gold/10 hover:border-gold/40 transition-all duration-200 shrink-0"
     >
       <svg
         width="16"
@@ -52,7 +57,7 @@ function ArrowButton({
       >
         <path
           d="M6 3L11 8L6 13"
-          stroke="currentColor"
+          stroke="#C89B3C"
           strokeWidth="1.5"
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -62,7 +67,7 @@ function ArrowButton({
   );
 }
 
-export default function MythbustersCarousel() {
+export default function FestivalsCarousel() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [isPaused, setIsPaused] = useState(false);
 
@@ -72,12 +77,11 @@ export default function MythbustersCarousel() {
     if (!container) return;
 
     let animationId: number;
-    let scrollSpeed = 0.5;
+    const scrollSpeed = 0.4;
 
     function autoScroll() {
       if (!isPaused && container) {
         container.scrollLeft += scrollSpeed;
-        // Loop back when reaching the end
         if (
           container.scrollLeft >=
           container.scrollWidth - container.clientWidth
@@ -102,15 +106,18 @@ export default function MythbustersCarousel() {
   }
 
   return (
-    <section className="py-20 sm:py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <section className="py-20 sm:py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto mandala-watermark">
+      {/* Om divider */}
+      <div className="om-divider" />
+
       {/* Section header */}
       <div className="flex items-end justify-between mb-10">
         <div>
-          <p className="text-gold text-xs font-semibold tracking-[0.2em] uppercase mb-2">
-            Discover the truth
+          <p className="text-saffron text-xs font-semibold tracking-[0.2em] uppercase mb-2">
+            Celebrations
           </p>
           <h2 className="font-heading text-3xl sm:text-4xl font-bold text-text">
-            Mythbusters
+            Upcoming Festivals
           </h2>
         </div>
         <div className="flex gap-2">
@@ -124,48 +131,35 @@ export default function MythbustersCarousel() {
         ref={scrollRef}
         className="scroll-carousel flex gap-6 overflow-x-auto pb-4 -mx-1 px-1"
         role="region"
-        aria-label="Mythbusters carousel"
+        aria-label="Upcoming festivals carousel"
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
         onTouchStart={() => setIsPaused(true)}
         onTouchEnd={() => setIsPaused(false)}
       >
-        {/* Intro card */}
-        <div className="shrink-0 w-[280px] sm:w-[300px] bg-gradient-to-br from-gold/10 to-gold/5 rounded-card p-7 flex flex-col justify-between border border-gold/10">
-          <div>
-            <h3 className="font-heading text-xl font-bold text-text mb-3">
-              Mythbusters
-            </h3>
-            <p className="text-sm text-mutedText leading-relaxed">
-              Common misconceptions about Vedic traditions — debunked with
-              knowledge and context.
-            </p>
-          </div>
-          <button className="mt-8 text-gold text-sm font-semibold hover:text-goldHover transition-colors text-left">
-            View all →
-          </button>
-        </div>
-
-        {/* Myth cards */}
-        {myths.map((myth, i) => (
+        {festivals.map((festival, i) => (
           <article
             key={i}
-            className="shrink-0 w-[260px] sm:w-[280px] bg-surface rounded-card shadow-card card-hover border border-border overflow-hidden flex flex-col cursor-pointer"
+            className="shrink-0 w-[280px] sm:w-[300px] bg-surface rounded-card shadow-card card-hover border border-gold/10 overflow-hidden flex flex-col cursor-pointer"
           >
+            {/* Festival illustration area with warm tones */}
             <div
-              className={`h-40 bg-gradient-to-br ${myth.color} flex items-center justify-center`}
+              className={`h-44 bg-gradient-to-br ${festival.color} flex items-center justify-center relative`}
             >
-              <span
-                className="text-5xl select-none"
-                aria-hidden="true"
-              >
-                {myth.icon}
+              {/* Subtle saffron border accent */}
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
+              <span className="text-6xl select-none" aria-hidden="true">
+                {festival.icon}
               </span>
             </div>
+
             <div className="p-6 flex-1 flex flex-col">
-              <h3 className="font-heading text-sm font-bold text-text leading-snug mb-4">
-                &ldquo;{myth.title}&rdquo;
+              <h3 className="font-heading text-lg font-bold text-text mb-2">
+                {festival.title}
               </h3>
+              <p className="text-xs text-mutedText leading-relaxed mb-4">
+                {festival.description}
+              </p>
               <button className="mt-auto text-gold text-xs font-semibold hover:text-goldHover transition-colors text-left">
                 Learn More →
               </button>
